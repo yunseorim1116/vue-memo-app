@@ -5,7 +5,7 @@ const port = 3000
 app.get('/api/account', (req, res) => {
   res.send({
     mid:3,
-    memberName:"윤서림"
+    memberNumber:"윤서림"
   })
 })
 

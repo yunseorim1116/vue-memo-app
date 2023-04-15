@@ -1,7 +1,7 @@
 <template>
 
   <div class="app">
-    <div v-if="state.loggedIn"> 안녕하세요 ? 홍길동님 !</div>
+    <div v-if="state.account.mid"> 안녕하세요 ? {{state.account.memberName}} 님!</div>
 
     <div v-else>
     <label for="loginId">
@@ -24,11 +24,17 @@
 import { reactive } from 'vue';
 import axios from 'axios';
 
-const state = reactive({ loggedIn : false})
+const state = reactive({
+  account:{
+   mid:null,
+   memberName : ""
+   } ,
+loggedIn : false})
 console.log(state)
 
 axios.get('/api/account').then((res)=>{
-  console.log(res)
+  console.log(res.data)
+  state.account = res.data
 })
 
 </script>
