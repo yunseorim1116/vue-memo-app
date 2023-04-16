@@ -46,6 +46,11 @@ const handleSubmit = () =>{
 
   axios.post('/api/account', args).then((res)=>{
     console.log(res)
+     console.log('로그인 성공 TEST')
+       state.account = res.data
+  }).catch((res)=>{
+    console.log(res)
+    console.log('로그인 실패 TEST')
   })
 
 
